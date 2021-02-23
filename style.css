@@ -1,0 +1,173 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 18px;
+  background: #ffffff;
+  font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+  padding: 20px 80px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+hr {
+  width: 20%;
+  margin: auto;
+  border: 1px solid;
+}
+
+.headline {
+  font-weight: 100;
+  font-size: 6rem;
+  text-align: center;
+}
+
+#restaurant {
+  font-size: 10rem;
+}
+
+.flex-align-middle {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  font-size: 2.5rem;
+  font-weight: 100;
+  padding: 5px 70px;
+  margin: 20px 0px;
+}
+
+.option {
+  text-align: center;
+  filter: grayscale(100%);
+}
+
+.optionContainer {
+  padding: 20px 0px;
+}
+
+.optionContainer div:first-child {
+  content: url(img/jollibee.jpg);
+  object-fit: contain;
+  /* background-image: url(img/jollibee.jpg);
+  background-size: contain; */
+  height: 160px;
+}
+
+.optionContainer div:nth-child(2) {
+  content: url(img/mcdo.jpg);
+  object-fit: contain;
+  height: 160px;
+}
+
+.optionContainer div:nth-child(3) {
+  content: url(img/bk.jpg);
+  object-fit: contain;
+  height: 160px;
+}
+
+.optionContainer div:nth-child(4) {
+  content: url(img/mi.jpg);
+  object-fit: contain;
+  height: 160px;
+}
+
+.optionContainer div:nth-child(5) {
+  content: url(img/kfc.jpg);
+  object-fit: contain;
+  height: 160px;
+}
+
+.optionContainer div:nth-child(6) {
+  content: url(img/bm.jpg);
+  object-fit: contain;
+  height: 160px;
+}
+
+.optionContainer div:nth-child(7) {
+  content: url(img/kamir.jpg);
+  object-fit: contain;
+  height: 160px;
+}
+
+.optionContainer div:nth-child(8) {
+  content: url(img/eb.jpg);
+  object-fit: contain;
+  height: 160px;
+}
+
+.optionContainer div:nth-child(9) {
+  content: url(img/diet.jpg);
+  object-fit: contain;
+  height: 160px;
+}
+
+.selected {
+  filter: unset;
+}
+
+#showLoading,
+#showRestaurant {
+  background-color: rgba(51, 51, 51, 0.48);
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: auto;
+  z-index: 9999999;
+  display: none;
+}
+
+.loading-container,
+.restaurant-container {
+  position: relative;
+  max-width: 400px !important;
+  padding: 0 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 15rem auto;
+  border-radius: 15px;
+  background: #ffffff;
+
+  z-index: 9999;
+}
+
+#showRestaurant {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  #showRestaurant {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #restaurant {
+    display: none;
+  }
+
+  #restaurantMob {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    padding: 20px 5px;
+  }
+
+  .headline {
+    font-size: 4rem;
+  }
+
+  /* .optionContainer div {
+    height: 160px !important;
+  } */
+}

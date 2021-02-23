@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/favicon.png" sizes="30x30" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>hahaha</title>
+  </head>
+
+  <div id="showLoading">
+    <div class="container loading-container">
+      <br />
+      <div class="text-center">
+        <img
+          src="img/loading.gif"
+          alt="loading.gif"
+          style="max-width: 350px; width: 100%"
+        />
+      </div>
+      <p style="font-weight: 100">amu...</p>
+      <br />
+    </div>
+  </div>
+
+  <div id="showRestaurant">
+    <div class="container restaurant-container">
+      <br />
+      <br />
+      <div class="text-center">
+        <h1 class="text-center" id="restaurantMob"></h1>
+        <hr />
+      </div>
+      <br />
+      <br />
+      <button class="btn btn-outline-dark" type="button" onclick="closeModal()">
+        Close
+      </button>
+    </div>
+  </div>
+
+  <body>
+    <div class="row wrapper flex-align-middle justify-content-center">
+      <div class="col-12 col-md-5">
+        <h1 class="headline">
+          danups <span style="font-weight: 500">lordx</span>
+        </h1>
+        <div class="text-center">
+          <hr />
+        </div>
+
+        <div class="optionContainer row justify-content-center"></div>
+
+        <!-- BUTTON -->
+        <div class="text-center">
+          <button
+            type="button"
+            class="btn btn-dark btn-lg"
+            onclick="findRestau()"
+          >
+            nanu
+          </button>
+          <!-- END OF BUTTON -->
+        </div>
+      </div>
+      <div class="col-md-7">
+        <h1 class="text-center" id="restaurant"></h1>
+        <div class="text-center">
+          <hr />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var options = [
+        "Jollibee",
+        "McDo",
+        "Burger King",
+        "Mang Inasal",
+        "KFC",
+        "Banh Mi",
+        "Kamir",
+        "Eggs N' Brekky",
+        "MATABA HAHAHHA",
+      ];
+      var isLoading = false;
+
+      var optionContainer = document.querySelector(".optionContainer");
+      var optionElements = options.map((option) => {
+        var newElement = document.createElement("div");
+        newElement.innerHTML = option;
+        newElement.className = "option col-6 col-sm-6 col-md-4 col-lg-4";
+        optionContainer.appendChild(newElement);
+        return newElement;
+      });
+
+      findRestau = () => {
+        for (var i = 0; i < optionElements.length; i++) {
+          //remove all 'selected classname'
+          for (var x = 0; x < optionElements.length; x++) {
+            if (optionElements[x].classList.contains("selected")) {
+              optionElements[x].classList.remove("selected");
+            }
+          }
+        }
+        document.getElementById("showLoading").style.display = "block";
+        isLoading = true;
+
+        //timer
+        setTimeout("change()", 5000);
+
+        change = () => {
+          var now = new Date();
+          var seconds = now.getSeconds();
+          var restaurant = options[seconds % options.length];
+          var restaurantMob = options[seconds % options.length];
+
+          var found = [];
+
+          for (var i = 0; i < optionElements.length; i++) {
+            if (
+              optionElements[i].textContent == restaurant ||
+              optionElements[i].textContent == restaurantMob
+            ) {
+              found = optionElements[i];
+              break;
+            }
+          }
+          found.classList.add("selected");
+
+          isLoading = false;
+          if (isLoading == false) {
+            document.getElementById("showLoading").style.display = "none";
+            document.getElementById("showRestaurant").style.display = "block";
+          }
+          document.getElementById("restaurant").innerHTML = restaurant;
+          document.getElementById("restaurantMob").innerHTML = restaurantMob;
+
+          console.log(isLoading);
+          console.log(restaurant);
+        };
+      };
+
+      closeModal = () => {
+        document.getElementById("showRestaurant").style.display = "none";
+        console.log("close");
+      };
+    </script>
+  </body>
+</html>
